@@ -56,6 +56,7 @@ Success! - Published to web-address.surge.sh
 	- Click on **Add secret**
 4. On the repo page, click on **Actions**, then click on **set up a workflow yourself**
 5. Name the file *deploy_surge.yml* and enter the code below in the code editor:
+	- Ensure that you have changed the web-address and token name to address and names you have selected for your particular project
 ```
 # This is a basic workflow to help you get started with Actions
 
@@ -87,9 +88,11 @@ jobs:
       - name: Install Surge
         run: npm install -g surge
       - name: Deploy using surge
-        run: surge ./ uas_bootcamp2020_1.surge.sh --token ${{secrets.SURGE_KEY}}
+        run: surge ./ web-address.surge.sh --token ${{secrets.SURGE_KEY}}
 ```
+
 6. Commit the creation of the action
 7. Go to **Actions** page to verify that the action script runs correctly and that there are no errors
+
 
 Now any changes made to the repo (committed and pushed) will automatically be updated and deployed to surge
